@@ -1,0 +1,19 @@
+{% extends 'staffproj.html' %}
+
+{% block content %}
+<div class="text"><h1><b>      <u>Query Response:</u></b></h1></div>
+{% for i in q %}<br><br>
+QUERY👉 : {{i.question}}<br>
+{% if i.answered_status %}
+Response👉:<br>
+✔<textarea id="w3review" name="w3review" rows="5" cols="50" readonly >
+   {{i.answer}}
+   </textarea><br>
+{% else %}
+😢<b>Not Answered yet</b><br>
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}

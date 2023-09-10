@@ -1,0 +1,72 @@
+{% if user.is_authenticated %}
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'jQuery-plugin-progressbar.css' %}">
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="{% static 'jQuery-plugin-progressbar.js' %}"></script>
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+
+<div class="jquery-script-ads"><script type="text/javascript">
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+</div>
+ATTENDANCE STATS OF <b>{{student.user.username}},{{student.branch}},{{student.semester}} SEMESTER</b> for <b>{{coursename}}</b><br>
+<b>TOTAL CLASSES ATTENDED BY YOU:{{obj.attended_classes_count}},
+TOTALCLASSES:{{obj.total_classes_count}}</b><br>
+<b>list of days absent:</b>{% for k in li %}
+👉{{k.dates_of_absent}}({{k.day}})(No of classes absent on that day:{{k.no_of_classes_absent}})<br>
+{% endfor %}
+
+<div class="jquery-script-clear"></div>
+
+</div>
+</div>
+<br><br>
+	<center>
+	
+	<div class="progress-bar position" data-percent="{{percentage}}"style="postion:relative;left:400px;" data-duration="1000" data-color="#ccc,yellow"><b>STUDENT ATTENDANCE AVERAGE:</b></div>
+	
+	<div class="progress-bar position" data-percent="{{classavg}}" style="position:relative;left:400px;" data-color="#a456b1,#12b321"><b>	CLASS ATTENDANCE AVERAGE:</b></div>
+	</center>
+
+	<script>
+		$(".progress-bar").loading();
+		$('input').on('click', function () {
+			 $(".progress-bar").loading();
+		});
+	</script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+{% else %}
+  U are not authenticated please go to home page:<br>
+  <a href="/">home</a>
+  {% endif %}
+</body>
+</html>

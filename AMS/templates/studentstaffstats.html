@@ -1,0 +1,20 @@
+{% extends 'staffproj.html' %}
+
+{% block content %}
+
+
+
+<br>
+<b>Total class average attendance percentage:{{classavg}}</b>
+<center><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+</center>
+<ul id="myUL">
+    {% for k,per in li.items %}
+    <a href="/stafflogin/staff/studentattendance/{{coursename}}/{{k.stud.user.username}}"><div>
+  <li>{{k.stud.user.username}},{{k.stud.branch}},{{k.stud.semester}}SEMESTER,  Attendance percentage:{{per}}</li></div></a>
+  {% endfor %}
+</ul>
+
+
+
+{% endblock %}

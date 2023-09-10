@@ -1,0 +1,98 @@
+{% extends 'stproj.html' %}
+
+{% block content %}
+<br><br><br>
+<h1 class="tt"> <u> TIME TABLE FOR {{branch}}, {{semester}} SEMESTER</u></h1>
+<br>
+    <table border="5" cellspacing="0" align="center" class="tt" >
+        <!--<caption>Timetable</caption>-->
+        <tr>
+            <td align="center" height="50" 
+                width="100"><br>
+                <b>Day/Period</b></br>
+            </td>
+           
+            <td align="center" height="50" 
+                width="100">
+                <b>I<br>10:00-11:00</b>
+            </td>
+            <td align="center" height="50" 
+                width="100">
+                <b>II<br>11:00-12:00</b>
+            </td>
+            <td align="center" height="50" 
+                width="100">
+                <b>12:00-14:00</b>
+            </td>
+            
+            <td align="center" height="50" 
+                width="100">
+                <b>III<br>14:00-15:00</b>
+            </td>
+            <td align="center" height="50" 
+                width="100">
+                <b>IV<br>15:00-16:00</b>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" height="50">
+                <b>Monday</b></td>
+              
+                <td align="center" height="50">{{monday.a}}</td>
+          
+            <td align="center" height="50">{{monday.b}}</td>
+           
+            <td rowspan="6" align="center" height="50">
+                <h2>L<br>U<br>N<br>C<br>H</h2>
+            </td>
+            <td align="center" height="50">{{monday.c}}</td>
+            <td align="center" height="50">{{monday.d}}</td>
+           
+        </tr>
+        <tr>
+            <td align="center" height="50">
+                <b>Tuesday</b>
+            </td>
+            <td align="center" height="50">{{tuesday.a}}</td>
+            <td align="center" height="50">{{tuesday.b}}</td>
+            <td align="center" height="50">{{tuesday.c}}</td>
+            <td align="center" height="50">{{tuesday.d}}</td>
+           
+        </tr>
+        <tr>
+            <td align="center" height="50">
+                <b>Wednesday</b>
+            </td>
+            <td align="center" height="50">{{wednesday.a}}</td>
+            <td align="center" height="50">{{wednesday.b}}</td>
+            <td align="center" height="50">{{wednesday.c}}</td>
+            <td align="center" height="50">{{wednesday.d}}</td>
+            
+        </tr>
+        <tr>
+            <td align="center" height="50">
+                <b>Thursday</b>
+            </td>
+            <td align="center" height="50">{{thursday.a}}</td>
+            <td align="center" height="50">{{thursday.b}}</td>
+            <td align="center" height="50">{{thursday.c}}</td>
+            <td align="center" height="50">{{thursday.d}}</td>
+
+            
+        </tr>
+        <tr>
+            <td align="center" height="50">
+                <b>Friday</b>
+            </td>
+            <td align="center" height="50">{{friday.a}}</td>
+            <td align="center" height="50">{{friday.b}}</td>
+
+
+            <td align="center" height="50">{{friday.c}}</td>
+            <td align="center" height="50">{{friday.d}}</td>
+            
+        </tr>
+       
+    </table>
+
+    {% endblock %}

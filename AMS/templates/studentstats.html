@@ -1,0 +1,15 @@
+{% extends 'stproj.html' %}
+{% block content %}
+<br>
+<center><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+</center>
+<ul id="myUL">
+    {% for key,value in d.items %}
+  <li><a href="/studentlogin/student/stats/{{key}}">{{key}}</a></li>
+  {% endfor %}
+</ul>
+
+
+
+
+{% endblock %}

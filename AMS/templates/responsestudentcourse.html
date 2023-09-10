@@ -1,0 +1,22 @@
+{% extends 'staffproj.html' %}
+
+{% block content %}
+<center><form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     <!--{{ form.as_table }}-->
+     <div ><br><br>
+        
+        <b>Query:</b>{{ki.question}}<br><br>
+         
+         {{ form.answer.errors }}
+         <label for="{{ form.answer.id_for_label }}" >Response:</label><br>
+         {{ form.answer }}<br><br>
+         
+     </div><br>
+     <input type="submit" value="Respond">
+ </form></center>
+
+
+
+
+{% endblock %}

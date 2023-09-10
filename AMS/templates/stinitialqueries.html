@@ -1,0 +1,23 @@
+{% extends 'stproj.html' %}
+{% block content %}
+<br><br>
+<h1><b><pre>     <u>QUERY</u></pre></b></h1><br><br>
+<center>
+<a href="/studentlogin/student/makeaquery"><button type="button" class="button button2">Make a Query</button></a><br><br>
+<form method="POST" action="/studentlogin/student/queries">
+    {% csrf_token %}
+    
+    <button type="submit" class="button button2">CHECK QUERYRESPONSES FROM</button>
+    <select name="to_who" id="cars">
+        <option value="ADMIN">ADMIN</option>
+        {% for k in li %}
+      <option value="{{k}}">{{k}}</option>
+     
+      {% endfor %}
+      
+    </select>
+    <br><br>
+  </center>
+
+
+{% endblock %}

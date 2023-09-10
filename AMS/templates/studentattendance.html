@@ -1,0 +1,17 @@
+{% extends 'staffproj.html' %}
+{% block content %}
+
+
+<br>
+<center><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+</center>
+<ul id="myUL">
+    {% for k in li %}
+  <li><a href="/stafflogin/staff/studentattendance/{{k}}">{{k}}</a></li>
+  {% endfor %}
+</ul>
+
+
+
+
+{% endblock %}

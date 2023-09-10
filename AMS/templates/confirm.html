@@ -1,0 +1,100 @@
+<!--<html>
+<head>
+<title>Forgotpassword</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <input type="password" name="OTP" placeholder="OTP">
+    <br>
+    <label>SET NEW Password:</label>
+    <br>
+    <input type="password" name="password1" class="p1" placeholder="PASSWORD">
+    <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+    <br>
+    <label>CONFIRM PASSWORD:</label>
+    <br>
+    <input type="password" name="password2" class="p1" placeholder="CONFIRMPASSWORD">
+    
+    <br>
+    <input type="submit" value="SETPASSWORD">
+</form>
+<script>
+    const password = document.querySelectorAll('.p1');
+ 
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password[0].getAttribute('type') === 'password' ? 'text' : 'password';
+      password[0].setAttribute('type', type);
+      const typeo = password[1].getAttribute('type') === 'password' ? 'text' : 'password';
+      password[1].setAttribute('type', typeo);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+  });
+    {% for message in messages %}
+    window.alert("{{message}}");
+    {% endfor %}
+</script>
+</body>
+
+
+</html>-->
+<html>
+<head>
+
+<title>Forgotpassword</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<style>
+    body{
+        background-color:#E4E9F7;
+    }
+    </style>
+<body>
+    <br><br><br><br><br><br><br>
+<center><form method="POST">
+    {% csrf_token %}
+    <label><b><strong>OTP:</strong></b></label>
+    <br>
+    <input type="password" name="OTP" placeholder="OTP">
+    <br><br>
+    <label><b>SET NEW Password:</b></label>
+    <br>
+    <input type="password" name="password1" class="p1" placeholder="PASSWORD">
+    <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+    <br><br>
+    <label><b>CONFIRM PASSWORD:</b></label>
+    <br>
+    <input type="password" name="password2" class="p1" placeholder="CONFIRMPASSWORD">
+    
+    <br><br>
+    <button type="submit" class="btn btn-primary">SET PASSWORD</button>
+</form></center>
+<script>
+    const password = document.querySelectorAll('.p1');
+ 
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password[0].getAttribute('type') === 'password' ? 'text' : 'password';
+      password[0].setAttribute('type', type);
+      const typeo = password[1].getAttribute('type') === 'password' ? 'text' : 'password';
+      password[1].setAttribute('type', typeo);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+  });
+    {% for message in messages %}
+    window.alert("{{message}}");
+    {% endfor %}
+</script>
+</body>
+
+
+</html>

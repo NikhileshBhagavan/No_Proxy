@@ -1,0 +1,18 @@
+{% extends 'staffproj.html' %}
+{%  block content %}
+{% for key,value in d.items %}
+<div></div>
+<h1><u>{{key}}</u></h1>
+<b>Queries:</b>
+
+{% for k in  value %}
+From <b>{{k.from_stu.user.username}},{{k.from_stu.semester}} Semester,{{k.from_stu.branch}}👉</b><a href="/stafflogin/staff/staffmanagequeries/{{k.id}}">{{k.question}}</a><br><br>
+<br>
+{% endfor %}
+<br>
+
+{% endfor %}
+
+
+
+{% endblock %}

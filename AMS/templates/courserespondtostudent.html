@@ -1,0 +1,18 @@
+{% extends 'stproj.html' %}
+
+{% block content %}
+{% for i in q %}<br><br>
+QUERY👉 : {{i.question}}<br>
+{% if i.answered_status %}
+Response👉:<br>
+✔<textarea id="w3review" name="w3review" rows="5" cols="50" readonly >
+   {{i.answer}}
+   </textarea><br>
+{% else %}
+😢<b>Not Answered yet</b><br>
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}

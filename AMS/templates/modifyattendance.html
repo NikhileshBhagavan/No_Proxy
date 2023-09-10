@@ -1,0 +1,63 @@
+
+{% if user.is_authenticated %}
+<html>
+<head>
+    <style>
+        .button1 {
+            border-radius:10px;
+            font-size: 20px;
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50; /* Green */
+      }
+      .button1:hover{
+          background-color: gray;
+      }
+    </style>
+</head>
+<body>
+<br><br><br><br><br><br><br><br><center>
+<form method="POST" class="f">
+    {% csrf_token %}
+    Date to Modify:<input type="date" name='modifydate' ><br><br>
+    <button type="button" class="button1" id="bt1">ADD ATTENDANCE</button><br><br>
+    <button type="button" class="button1" id="bt2">DELETE ATTENDANCE</button>
+    <a href="/stafflogin/staff/studentattendance"><button type="button" class="button1" id="bt2">GO BACK</button></a>
+
+
+</form>
+</center>
+
+<script>
+    function addattendance(){
+        original = document.querySelector(".f");
+        original.action="http://127.0.0.1:8000/stafflogin/staff/studentattendance/"+"{{coursename}}"+"/"+"{{name}}"+"/"+"addattendance";
+        
+        original.submit();
+    }
+    function deleteattendance(){
+        original = document.querySelector(".f");
+        original.action="http://127.0.0.1:8000/stafflogin/staff/studentattendance/{{coursename}}/{{name}}/deleteattendance";
+        
+        original.submit();
+    }
+    document.getElementById("bt1").addEventListener("click",addattendance);
+    document.getElementById("bt2").addEventListener("click",deleteattendance);
+
+
+</script>
+<script>
+    {% for message in messages %}
+    window.alert("{{message}}");
+    {% endfor %}
+  </script>
+  {% else %}
+  U are not authenticated please go to home page:<br>
+  <a href="/">home</a>
+  {% endif %}
+</body>
+
+
+
+
+</html>

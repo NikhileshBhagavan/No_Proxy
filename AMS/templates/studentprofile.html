@@ -1,0 +1,54 @@
+{% extends 'stproj.html' %}
+{% block content %}
+<div class="text"><h1 style="position:relative;left:40px;"><u>Profile</u></h1></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-body">
+                <a class="btn btn-warning" href="/studentlogin/student"> &#8592; Back to Home</a>
+                <hr>
+                <h3 style="text-align: center">Student Profile Pic</h3>
+                <hr>
+                
+                <img class="img-responsive profile-pic" id="blah" src="{{s.spamprofilepic.url}}" >
+               
+            </div>
+        </div>
+        <div class="col-md-9">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group" style="visibility: hidden !important;margin-top: -40px;">
+                    <input type="text" class="form-control" value="{{ prev_reg_id }}" name="prev_reg_id">
+                </div>
+                <label>Firstname:</label><input type="text" name="firstname" value="{{s.user.first_name}}" required><br><br>
+             <label>Lastname:</label><input type="text" name="lastname" value="{{s.user.last_name}}" required><br><br>
+             <label>Email:</label><input type="email" name="email" value="{{s.user.email}}"  required><br><br>
+             <label>Semester:</label><input type="email" name="semester" placeholder="{{s.semester}}" readonly required><br><br>
+             <label>Branch:</label><input type="email" name="branch" placeholder="{{s.branch}}" readonly required><br><br>
+
+             
+             <!--{{ form.semester.errors }}
+             <label for="{{ form.semester.id_for_label }}" >semester:</label>
+             {{ form.semester }}<br><br>
+             {{ form.branch.errors }}
+             <label for="{{ form.branch.id_for_label }}" >branch:</label>
+             {{ form.branch }}<br><br>-->
+             <label>Change ProfilePic:</label><input type="file" id="fileopen" name="studprofilepic" onchange="readURL(this);" accept=".pgj,.jpeg,.png"><br><button type="button" id="clear">Reset Pic</button><br><br>
+             <label>Student Id:</label><input type="text" name="id" value="{{s.user.username}}"  readonly required><br><br>
+             
+             <!--<label>Password:</label><input type="password" name="password1"><br><br>
+             <label>ConfirmPassword:</label><input type="password"name="password2"><br>-->
+                <input class="btn btn-primary" type="submit" value="Update Information">
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    
+    document.getElementById("clear").addEventListener("click", function () {
+        document.getElementById("fileopen").value = "";
+        document.getElementById("blah").src="{{s.spamprofilepic.url}}"
+    }, false);
+</script>
+
+{% endblock %}
